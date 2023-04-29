@@ -125,58 +125,91 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                 ),
               ),
-              Stack(
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Expanded(
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: <Widget>[
+                      SvgPicture.asset('lib/assets/vectors/Blob1.svg'),
+                      Column(
+                        children: <Widget>[
+                          const SizedBox(height: 20),
+                          Image.asset('lib/assets/images/boy_meditating.png'),
+                          const Text(
+                              'At Refresh, Stay Fresh we want\n'
+                                  'to remind extraordinary people\n'
+                                  'that they deserve just as much\n'
+                                  'case as they give to otheres.'
+                          ),
+                          ElevatedButton(onPressed: () {},  child: const Text('Nominate Today'))
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Column(
                 children: <Widget>[
-                  Blob.random(
-                    size: 200,
-                    styles: BlobStyles(
-                      color: const Color(0xFFDAAE91)
-                    ),
-                  )
+                  Text(
+                    'Our Mission',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly ,
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Kindness'
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SvgPicture.asset(
+                            'lib/assets/vectors/holdingHands.svg'
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                              'Rejuvenate'
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SvgPicture.asset(
+                              'lib/assets/vectors/Logo.svg'
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                              'Self Care'
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SvgPicture.asset(
+                              'lib/assets/vectors/Heart.svg'
+                          ),
+                        ],
+                      ),
+
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                 ],
-              ),
-              const Text(
-                'At Refresh, Stay Fresh we want\n'
-                    'to remind extraordinary people\n'
-                    'that they deserve just as much\n'
-                    'care as they give to others',
-                textAlign: TextAlign.center,
-              ),
-              ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Nominate Today'),
-              ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      'Our Mission',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Stack(
-                          children: [
-                            SvgPicture.asset(
-                              'lib/assets/vectors/holdingHands.svg'
-                            ),
-                            const Text(
-                                'Kidness'
-                            ),
-                          ]
-
-
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                child: const Text(
-                    'A very nice pic of kindness, rejuvenate, and self care',
-                    textAlign: TextAlign.center,
-                ),
               ),
               const Text(
                 'Refresh, Stay Fresh seeks to give those\n'
@@ -193,47 +226,57 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Learn More'
                   )
               ),
-              Text(
-                'The Team',
-                style: Theme.of(context).textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-              Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    const Spacer(flex: 2),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 100,
-                      padding: const EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: const Text('Reuben V'),
+
+              Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Blob.random(size: 600),
+                  Text(
+                    'The Team',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        const Spacer(flex: 2),
+                        Container(
+                          height: 30,
+                          width: MediaQuery.of(context).size.width - 100,
+                          padding: const EdgeInsets.all(4.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                          ),
+                          child: const Text('Reuben V'),
+                        ),
+                        Container(
+                          height: 30,
+                          width: MediaQuery.of(context).size.width - 100,
+                          padding: const EdgeInsets.all(4.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                          ),
+                          child: const Text('Figgy R'),
+                        ),
+                        Container(
+                          height: 30,
+                          width: MediaQuery.of(context).size.width - 100,
+                          padding: const EdgeInsets.all(4.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                          ),
+                          child: const Text('Nathan G'),
+                        ),
+                      ],
                     ),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 100,
-                      padding: const EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: const Text('Figgy R'),
-                    ),
-                    Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width - 100,
-                      padding: const EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: const Text('Nathan G'),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Text(
                 'Milestones',
