@@ -33,8 +33,10 @@ class MyApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        textTheme: const TextTheme( // set up all the text theme data
-          bodyLarge: TextStyle( // for headers and large text
+        textTheme: const TextTheme(
+          // set up all the text theme data
+          bodyLarge: TextStyle(
+            // for headers and large text
             fontWeight: FontWeight.bold, // wight 700
             fontFamily: "Monserrat",
             fontSize: 18,
@@ -77,7 +79,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -87,226 +88,198 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
       drawer: HamburgerMenu(),
       body: Center(
         child: Expanded(
-          child: ListView(
-            padding: const EdgeInsets.all(10.0),
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width / 2,
-                height: 100,
-                child: Expanded(
-                  child: ListView(
-                      scrollDirection: Axis.horizontal,
-
-                      children: <Widget>[
-                        Text(
-                          'Refresh',
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                        SvgPicture.asset(
-                          "lib/assets/vectors/Logo.svg",
-                          height: 50.0,
-                          width: 50.0,
-                        ),
-                        Text(
-                          'Stay Fresh',
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                      ],
-                    ),
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Expanded(
-                  child: Stack(
-                    alignment: Alignment.topCenter,
-                    children: <Widget>[
-                      SvgPicture.asset('lib/assets/vectors/Blob1.svg'),
-                      Column(
-                        children: <Widget>[
-                          const SizedBox(height: 20),
-                          Image.asset('lib/assets/images/boy_meditating.png'),
-                          const Text(
-                              'At Refresh, Stay Fresh we want\n'
-                                  'to remind extraordinary people\n'
-                                  'that they deserve just as much\n'
-                                  'case as they give to otheres.'
-                          ),
-                          ElevatedButton(onPressed: () {},  child: const Text('Nominate Today'))
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Column(
+            child: ListView(
+          padding: const EdgeInsets.all(10.0),
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width / 2,
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
+                  const SizedBox(
+                    width: 60,
+                  ),
                   Text(
-                    'Our Mission',
+                    'Refresh',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  SvgPicture.asset(
+                    "lib/assets/vectors/Logo.svg",
+                    height: 50.0,
+                    width: 50.0,
+                  ),
+                  Text(
+                    'Stay Fresh',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly ,
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Kindness'
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SvgPicture.asset(
-                            'lib/assets/vectors/holdingHands.svg'
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                              'Rejuvenate'
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SvgPicture.asset(
-                              'lib/assets/vectors/Logo.svg'
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                              'Self Care'
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SvgPicture.asset(
-                              'lib/assets/vectors/Heart.svg'
-                          ),
-                        ],
-                      ),
-
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
+                    width: 60,
                   ),
                 ],
               ),
-              const Text(
-                'Refresh, Stay Fresh seeks to give those\n'
-                    'selfless, hardworking, and amazing\n'
-                    'individuals that do not prioritize their\n'
-                    'health, a fun wellness day where promoting\n'
-                    'their wellness is the focus. It is our hope\n'
-                    'that by giving them that ',
-                textAlign: TextAlign.center,
-              ),
-              ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Learn More'
-                  )
-              ),
-
-              Stack(
-                alignment: Alignment.center,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                alignment: Alignment.topCenter,
                 children: <Widget>[
-                  Blob.random(size: 600),
-                  Text(
-                    'The Team',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    textAlign: TextAlign.center,
+                  SvgPicture.asset('lib/assets/vectors/Blob1.svg'),
+                  Column(
+                    children: <Widget>[
+                      const SizedBox(height: 20),
+                      Image.asset('lib/assets/images/boy_meditating.png'),
+                      const Text('At Refresh, Stay Fresh we want\n'
+                          'to remind extraordinary people\n'
+                          'that they deserve just as much\n'
+                          'case as they give to otheres.'),
+                      ElevatedButton(
+                          onPressed: () {}, child: const Text('Nominate Today'))
+                    ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
+                ],
+              ),
+            ),
+            Column(
+              children: <Widget>[
+                Text(
+                  'Our Mission',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Spacer(flex: 2),
-                        Container(
-                          height: 30,
-                          width: MediaQuery.of(context).size.width - 100,
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                          ),
-                          child: const Text('Reuben V'),
+                        const Text('Kindness'),
+                        const SizedBox(
+                          height: 10,
                         ),
-                        Container(
-                          height: 30,
-                          width: MediaQuery.of(context).size.width - 100,
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                          ),
-                          child: const Text('Figgy R'),
-                        ),
-                        Container(
-                          height: 30,
-                          width: MediaQuery.of(context).size.width - 100,
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                          ),
-                          child: const Text('Nathan G'),
-                        ),
+                        SvgPicture.asset('lib/assets/vectors/holdingHands.svg'),
                       ],
                     ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('Rejuvenate'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        SvgPicture.asset('lib/assets/vectors/Logo.svg'),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('Self Care'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        SvgPicture.asset('lib/assets/vectors/Heart.svg'),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+            const Text(
+              'Refresh, Stay Fresh seeks to give those\n'
+              'selfless, hardworking, and amazing\n'
+              'individuals that do not prioritize their\n'
+              'health, a fun wellness day where promoting\n'
+              'their wellness is the focus. It is our hope\n'
+              'that by giving them that ',
+              textAlign: TextAlign.center,
+            ),
+            ElevatedButton(onPressed: () {}, child: const Text('Learn More')),
+            Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Blob.random(size: 600),
+                Text(
+                  'The Team',
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  height: 60,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      const Spacer(flex: 2),
+                      Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 100,
+                        padding: const EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: const Text('Reuben V'),
+                      ),
+                      Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 100,
+                        padding: const EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: const Text('Figgy R'),
+                      ),
+                      Container(
+                        height: 30,
+                        width: MediaQuery.of(context).size.width - 100,
+                        padding: const EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: const Text('Nathan G'),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              Text(
-                'Milestones',
-                style: Theme.of(context).textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                'Feeling Generous?',
-                style: Theme.of(context).textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-              const Text(
-                  'Donations help up accomplish our goals\n'
-                      'and all proceeds go towards our cause.\n'
-                      'With your help, we can continue to reach\n'
-                      'out, inspire, and help our community.',
-                textAlign: TextAlign.center,
-              ),
-              ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Donate')
-              ),
-              Text(
-                'Events',
-                style: Theme.of(context).textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          )
-        ),
+                ),
+              ],
+            ),
+            Text(
+              'Milestones',
+              style: Theme.of(context).textTheme.bodyLarge,
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              'Feeling Generous?',
+              style: Theme.of(context).textTheme.bodyLarge,
+              textAlign: TextAlign.center,
+            ),
+            const Text(
+              'Donations help up accomplish our goals\n'
+              'and all proceeds go towards our cause.\n'
+              'With your help, we can continue to reach\n'
+              'out, inspire, and help our community.',
+              textAlign: TextAlign.center,
+            ),
+            ElevatedButton(onPressed: () {}, child: const Text('Donate')),
+            Text(
+              'Events',
+              style: Theme.of(context).textTheme.bodyLarge,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        )),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
