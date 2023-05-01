@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refresh_stayfresh/main.dart';
 
 class HamburgerMenu extends StatelessWidget {
   @override
@@ -27,36 +28,32 @@ class HamburgerMenu extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          SizedBox(
-            height: 90,
-            child: ListTile(
-              leading: const Icon(Icons.favorite),
-              title: const Text(
-                'Nominate',
-              ),
-              onTap: () {},
-            ),
-          ),
-          Container(
-            height: 100,
-            alignment: Alignment.center,
-            child: Expanded(
-              child: ListTile(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ListTile(
                 leading: const Icon(Icons.favorite),
-                title: const Text('Nominate again'),
+                title: const Text('Nominate'),
                 onTap: () {},
-              )
-            )
-          ),
-          ListTile(
-            leading: const Icon(Icons.coffee),
-            title: const Text('Our Mission'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.people),
-            title: const Text('The Team'),
-            onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.coffee),
+                title: const Text('Our Mission'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.people),
+                title: const Text('The Team'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.people),
+                title: const Text('About Us'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(title: "Home")));
+                },
+              ),
+            ],
           ),
           ListTile(
             leading: const Icon(Icons.monetization_on),

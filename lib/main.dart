@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:refresh_stayfresh/routes/NominatePage.dart';
 import 'components/HamburgerMenu.dart';
-import 'package:blobs/blobs.dart';
+//import 'package:blobs/blobs.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -63,15 +64,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -79,20 +71,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(),
       drawer: HamburgerMenu(),
       body: Center(
         child: Expanded(
-            child: ListView(
+          child: ListView(
           padding: const EdgeInsets.all(10.0),
           children: <Widget>[
             Container(
@@ -137,9 +124,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       const Text('At Refresh, Stay Fresh we want\n'
                           'to remind extraordinary people\n'
                           'that they deserve just as much\n'
-                          'case as they give to otheres.'),
+                          'case as they give to others.'),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text('Nominate Today'))
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => NominatePage(title: "Nominate")));
+                          }, 
+                          child: const Text('Nominate Today'))
                     ],
                   ),
                 ],
@@ -204,56 +194,179 @@ class _MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
             ),
             ElevatedButton(onPressed: () {}, child: const Text('Learn More')),
-            Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Blob.random(size: 600),
-                Text(
-                  'The Team',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      const Spacer(flex: 2),
-                      Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 100,
-                        padding: const EdgeInsets.all(4.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                        ),
-                        child: const Text('Reuben V'),
+
+            SizedBox(
+              height: 300,
+              child: Column(
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      SvgPicture.asset(
+                        'lib/assets/vectors/Blob2.svg',
                       ),
-                      Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 100,
-                        padding: const EdgeInsets.all(4.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                        ),
-                        child: const Text('Figgy R'),
-                      ),
-                      Container(
-                        height: 30,
-                        width: MediaQuery.of(context).size.width - 100,
-                        padding: const EdgeInsets.all(4.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                        ),
-                        child: const Text('Nathan G'),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'The Team',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          Container(
+                            height: 150,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: <Widget>[
+                                Container(
+                                  height: 150,
+                                  width: MediaQuery.of(context).size.width - 150,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFD6DEE1),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.all(6),
+                                              child: Image.asset(
+                                                'lib/assets/images/sample_profile.png',
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: const <Widget>[
+                                                  Text(
+                                                    'Reuben V.',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight: FontWeight.bold,
+                                                      height: 1,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 30,
+                                                  ),
+                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                ],
+                                              ),
+                                            ),
+                                          ]
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 150,
+                                  width: MediaQuery.of(context).size.width - 150,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFD6DEE1),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.all(6),
+                                              child: Image.asset(
+                                                'lib/assets/images/sample_profile.png',
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: const <Widget>[
+                                                  Text(
+                                                    'Figgy R.',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight: FontWeight.bold,
+                                                      height: 1,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 30,
+                                                  ),
+                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                ],
+                                              ),
+                                            ),
+                                          ]
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 150,
+                                  width: MediaQuery.of(context).size.width - 150,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFD6DEE1),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.all(6),
+                                              child: Image.asset(
+                                                'lib/assets/images/sample_profile.png',
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: const <Widget>[
+                                                  Text(
+                                                    'Nathan G.',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight: FontWeight.bold,
+                                                      height: 1,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 30,
+                                                  ),
+                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                ],
+                                              ),
+                                            ),
+                                          ]
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ),
-              ],
+
+                ],
+              ),
             ),
             Text(
               'Milestones',
