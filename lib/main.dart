@@ -368,10 +368,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Text(
-              'Milestones',
-              style: Theme.of(context).textTheme.bodyLarge,
-              textAlign: TextAlign.center,
+            SizedBox(
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'Milestones',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  const Text('Milestones Leaf goes here!'),
+                  const Text('Progress bar goes here'),
+                ],
+              ),
             ),
             Text(
               'Feeling Generous?',

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import '../components/HamburgerMenu.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DonationPage extends StatefulWidget {
-  const DonationPage({super.key, required this.title});
+class NomineesPage extends StatefulWidget {
+  const NomineesPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<DonationPage> createState() => _DonationPageState();
+  State<NomineesPage> createState() => _NomineesPageState();
 }
 
-class _DonationPageState extends State<DonationPage> {
+class _NomineesPageState extends State<NomineesPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _DonationPageState extends State<DonationPage> {
             child: ListView(
               padding: const EdgeInsets.all(10.0),
               children: <Widget>[
-                const Text('This is the donation page'),
+                const Text('This is the nominees page'),
               ],
             )),
       ), // This trailing comma makes auto-formatting nicer for build methods.
