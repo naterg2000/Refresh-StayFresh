@@ -1,12 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:refresh_stayfresh/main.dart';
+import 'package:refresh_stayfresh/routes/DashboardPage.dart';
+import 'package:refresh_stayfresh/routes/DonatePage.dart';
+import 'package:refresh_stayfresh/routes/EventsPage.dart';
+import 'package:refresh_stayfresh/routes/NominatePage.dart';
+import 'package:refresh_stayfresh/routes/OurMissionPage.dart';
+import 'package:refresh_stayfresh/routes/TheTeamPage.dart';
+
+class DashboardListTile extends StatelessWidget {
+
+  DashboardListTile({required this.renderDashboard});
+
+  final bool renderDashboard;
+
+  @override
+  Widget build(BuildContext context) {
+    if(renderDashboard) {
+      return ListTile(
+        leading: const Icon(Icons.dashboard),
+        title: const Text('Dashboard'),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPage(title: "Dashboard")));
+        }
+      );
+    }
+    else {
+      return const SizedBox(
+        height: 0,
+        width: 0,
+      );
+    }
+  }
+
+}
 
 class HamburgerMenu extends StatelessWidget {
+
+  bool adminIsLoggedIn = true;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: <Widget>[
+        children: [
           const UserAccountsDrawerHeader(
               accountName: Text(
                   'sample_name',
@@ -27,46 +64,46 @@ class HamburgerMenu extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          SizedBox(
-            height: 90,
-            child: ListTile(
-              leading: const Icon(Icons.favorite),
-              title: const Text(
-                'Nominate',
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              DashboardListTile(renderDashboard: adminIsLoggedIn),
+              ListTile(
+                leading: const Icon(Icons.coffee),
+                title: const Text('Our Mission'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const OurMissionPage(title: "Our Mission")));
+                },
               ),
-              onTap: () {},
-            ),
-          ),
-          Container(
-            height: 100,
-            alignment: Alignment.center,
-            child: Expanded(
-              child: ListTile(
-                leading: const Icon(Icons.favorite),
-                title: const Text('Nominate again'),
-                onTap: () {},
-              )
-            )
-          ),
-          ListTile(
-            leading: const Icon(Icons.coffee),
-            title: const Text('Our Mission'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.people),
-            title: const Text('The Team'),
-            onTap: () {},
+              ListTile(
+                leading: const Icon(Icons.people),
+                title: const Text('The Team'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const TheTeamPage(title: "The Team")));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.people),
+                title: const Text('About Us'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "About Us")));
+                },
+              ),
+            ],
           ),
           ListTile(
             leading: const Icon(Icons.monetization_on),
             title: const Text('Donate'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const DonationPage(title: "Donate")));
+            },
           ),
           ListTile(
             leading: const Icon(Icons.calendar_month),
             title: const Text('Events'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const EventsPage(title: "Upcoming Events")));
+            },
           ),
           const Divider(),
           ListTile(
@@ -75,7 +112,7 @@ class HamburgerMenu extends StatelessWidget {
             onTap: () {},
           ),
         ],
-      )
+      ),
     );
   }
 }
