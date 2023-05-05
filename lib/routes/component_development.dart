@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refresh_stayfresh/components/expenses_card.dart';
 import 'package:refresh_stayfresh/components/nominee_card.dart';
 import '../components/HamburgerMenu.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,7 +23,7 @@ class _ComponentDevelopmentPageState extends State<ComponentDevelopmentPage> {
       body: Center(
         child: Expanded(
             child: ListView(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
               children: <Widget>[
                 Text(
                   'Large body text',
@@ -36,7 +37,8 @@ class _ComponentDevelopmentPageState extends State<ComponentDevelopmentPage> {
                   'Subheading Text',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
-                NomineeCard(),
+                const NomineeCard(),
+                ExpensesCard(),
               ],
             )),
       ), // This trailing comma makes auto-formatting nicer for build methods.

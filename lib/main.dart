@@ -43,19 +43,19 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold, // wight 700
             fontFamily: "Monserrat",
             fontSize: 18,
-            height: 4,
+            height: 3,
           ),
           bodyMedium: TextStyle(
             fontWeight: FontWeight.w600, // wight 600
             fontFamily: "Monserrat",
-            fontSize: 16,
-            height: 3,
+            fontSize: 14,
+            height: 2,
           ),
           bodySmall: TextStyle(
             fontWeight: FontWeight.w500, // wight 400
             fontFamily: "SourceSansPro",
-            fontSize: 14,
-            height: 3,
+            fontSize: 12,
+            height: 2,
           )
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -138,10 +138,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       const SizedBox(height: 20),
                       Image.asset('lib/assets/images/boy_meditating.png'),
-                      const Text('At Refresh, Stay Fresh we want\n'
+                      Text('At Refresh, Stay Fresh we want\n'
                           'to remind extraordinary people\n'
                           'that they deserve just as much\n'
-                          'case as they give to others.'),
+                          'case as they give to others.',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
                       ElevatedButton(
                           onPressed: () {
                             Navigator.push(
