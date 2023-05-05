@@ -1,18 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:refresh_stayfresh/main.dart';
+import 'package:refresh_stayfresh/routes/DashboardPage.dart';
 import 'package:refresh_stayfresh/routes/DonatePage.dart';
 import 'package:refresh_stayfresh/routes/EventsPage.dart';
 import 'package:refresh_stayfresh/routes/NominatePage.dart';
 import 'package:refresh_stayfresh/routes/OurMissionPage.dart';
 import 'package:refresh_stayfresh/routes/TheTeamPage.dart';
 
+class DashboardListTile extends StatelessWidget {
+
+  DashboardListTile({required this.renderDashboard});
+
+  final bool renderDashboard;
+
+  @override
+  Widget build(BuildContext context) {
+    if(renderDashboard) {
+      return ListTile(
+        leading: const Icon(Icons.dashboard),
+        title: const Text('Dashboard'),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPage(title: "Dashboard")));
+        }
+      );
+    }
+    else {
+      return const SizedBox(
+        height: 0,
+        width: 0,
+      );
+    }
+  }
+
+}
+
 class HamburgerMenu extends StatelessWidget {
+
+  bool adminIsLoggedIn = true;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: <Widget>[
+        children: [
           const UserAccountsDrawerHeader(
               accountName: Text(
                   'sample_name',
@@ -35,9 +66,10 @@ class HamburgerMenu extends StatelessWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
+              DashboardListTile(renderDashboard: adminIsLoggedIn),
               ListTile(
-                leading: const Icon(Icons.favorite),
+                leading: const Icon(Icons.coffee),
                 title: const Text('Nominate'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const NominatePage(title: "Nominate")));
@@ -87,7 +119,7 @@ class HamburgerMenu extends StatelessWidget {
             onTap: () {},
           ),
         ],
-      )
+      ),
     );
   }
 }

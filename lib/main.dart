@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:refresh_stayfresh/routes/NominatePage.dart';
+import 'package:refresh_stayfresh/routes/component_development.dart';
 import 'components/HamburgerMenu.dart';
-//import 'package:blobs/blobs.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:blobs/blobs.dart';
+import 'routes/create_task_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFFFFCF9),
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFFFFFFF),
           elevation: 0,
@@ -41,8 +43,20 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold, // wight 700
             fontFamily: "Monserrat",
             fontSize: 18,
-            height: 5,
+            height: 4,
           ),
+          bodyMedium: TextStyle(
+            fontWeight: FontWeight.w600, // wight 600
+            fontFamily: "Monserrat",
+            fontSize: 16,
+            height: 3,
+          ),
+          bodySmall: TextStyle(
+            fontWeight: FontWeight.w500, // wight 400
+            fontFamily: "SourceSansPro",
+            fontSize: 14,
+            height: 3,
+          )
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -53,10 +67,14 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        outlinedButtonTheme: const OutlinedButtonThemeData(),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: const Color(0xFF322C28),
+          )
+        ),
       ),
       darkTheme: ThemeData.dark(),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const ComponentDevelopmentPage(title: 'Component Development'),
     );
   }
 }
@@ -71,7 +89,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: HamburgerMenu(),
       body: Center(
         child: Expanded(
-          child: ListView(
+            child: ListView(
           padding: const EdgeInsets.all(10.0),
           children: <Widget>[
             Container(
@@ -127,8 +144,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           'case as they give to others.'),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => NominatePage(title: "Nominate")));
-                          }, 
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const NominatePage(title: "Nominate")));
+                          },
                           child: const Text('Nominate Today'))
                     ],
                   ),
@@ -194,7 +215,6 @@ class _MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
             ),
             ElevatedButton(onPressed: () {}, child: const Text('Learn More')),
-
             SizedBox(
               height: 300,
               child: Column(
@@ -211,14 +231,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             'The Team',
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
-                          Container(
-                            height: 150,
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * .2,
                             child: ListView(
                               scrollDirection: Axis.horizontal,
                               children: <Widget>[
                                 Container(
                                   height: 150,
-                                  width: MediaQuery.of(context).size.width - 150,
+                                  width:
+                                      MediaQuery.of(context).size.width - 150,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFD6DEE1),
                                     borderRadius: BorderRadius.circular(10.0),
@@ -226,7 +247,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Column(
                                     children: <Widget>[
                                       Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Padding(
                                               padding: const EdgeInsets.all(6),
@@ -239,33 +261,37 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                             Expanded(
                                               child: Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: const <Widget>[
                                                   Text(
                                                     'Reuben V.',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontSize: 20,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       height: 1,
                                                     ),
                                                   ),
                                                   SizedBox(
                                                     height: 30,
                                                   ),
-                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                  Text(
+                                                      "Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
                                                 ],
                                               ),
                                             ),
-                                          ]
-                                      ),
+                                          ]),
                                     ],
                                   ),
                                 ),
                                 Container(
                                   height: 150,
-                                  width: MediaQuery.of(context).size.width - 150,
+                                  width:
+                                      MediaQuery.of(context).size.width - 150,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFD6DEE1),
                                     borderRadius: BorderRadius.circular(10.0),
@@ -273,7 +299,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Column(
                                     children: <Widget>[
                                       Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Padding(
                                               padding: const EdgeInsets.all(6),
@@ -286,33 +313,37 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                             Expanded(
                                               child: Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: const <Widget>[
                                                   Text(
                                                     'Figgy R.',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontSize: 20,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       height: 1,
                                                     ),
                                                   ),
                                                   SizedBox(
                                                     height: 30,
                                                   ),
-                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                  Text(
+                                                      "Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
                                                 ],
                                               ),
                                             ),
-                                          ]
-                                      ),
+                                          ]),
                                     ],
                                   ),
                                 ),
                                 Container(
                                   height: 150,
-                                  width: MediaQuery.of(context).size.width - 150,
+                                  width:
+                                      MediaQuery.of(context).size.width - 150,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFD6DEE1),
                                     borderRadius: BorderRadius.circular(10.0),
@@ -320,7 +351,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Column(
                                     children: <Widget>[
                                       Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Padding(
                                               padding: const EdgeInsets.all(6),
@@ -333,27 +365,30 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                             Expanded(
                                               child: Column(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: const <Widget>[
                                                   Text(
                                                     'Nathan G.',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontSize: 20,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       height: 1,
                                                     ),
                                                   ),
                                                   SizedBox(
                                                     height: 30,
                                                   ),
-                                                  Text("Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
+                                                  Text(
+                                                      "Born and raised in Los Angeles, Reuben's career as a registered dietitian..."),
                                                 ],
                                               ),
                                             ),
-                                          ]
-                                      ),
+                                          ]),
                                     ],
                                   ),
                                 ),
@@ -364,7 +399,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),
