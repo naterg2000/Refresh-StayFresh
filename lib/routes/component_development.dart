@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:refresh_stayfresh/components/admin_navbar.dart';
+import 'package:refresh_stayfresh/components/budget_card.dart';
 import 'package:refresh_stayfresh/components/expenses_card.dart';
 import 'package:refresh_stayfresh/components/nominee_card.dart';
 import '../components/HamburgerMenu.dart';
@@ -37,8 +39,10 @@ class _ComponentDevelopmentPageState extends State<ComponentDevelopmentPage> {
                   'Subheading Text',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
+                BudgetCard(),
                 const NomineeCard(),
                 ExpensesCard(),
+                AdminNavbar(),
               ],
             )),
       ), // This trailing comma makes auto-formatting nicer for build methods.
